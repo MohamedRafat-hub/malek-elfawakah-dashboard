@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/custom_material_button.dart';
+import '../../../add_product/presentation/views/add_product_view.dart';
 
 class DashboardViewBody extends StatelessWidget {
   const DashboardViewBody({super.key});
@@ -12,7 +13,9 @@ class DashboardViewBody extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: CustomMaterialButton(buttonName: 'Add Data', onPressed: () {}),
+          child: CustomMaterialButton(buttonName: 'Add Data', onPressed: () {
+            Navigator.pushNamed(context, AddProductView.routeName);
+          }),
         ),
       ],
     );
