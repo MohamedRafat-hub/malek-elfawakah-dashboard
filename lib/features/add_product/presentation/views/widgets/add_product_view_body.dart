@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fruits_hub_dashboard/core/widgets/custom_material_button.dart';
+import 'package:fruits_hub_dashboard/features/add_product/domain/entities/add_product_entity.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../core/widgets/custom_text_field.dart';
@@ -14,10 +15,11 @@ class AddProductViewBody extends StatelessWidget {
 
   GlobalKey<FormState> _formKey = GlobalKey();
   AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
-  late String name , description , code;
+  late String name, description, code;
   late num price;
   bool isFeatured = false;
   File? image;
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -30,28 +32,28 @@ class AddProductViewBody extends StatelessWidget {
             spacing: 10,
             children: [
               CustomTextFormField(
-                onSaved: (value){
+                onSaved: (value) {
                   name = value!;
                 },
                 hintText: 'Product Name',
                 keyboardType: TextInputType.text,
               ),
               CustomTextFormField(
-                onSaved: (value){
+                onSaved: (value) {
                   price = num.parse(value!);
                 },
                 hintText: 'Product Price',
                 keyboardType: TextInputType.number,
               ),
               CustomTextFormField(
-                onSaved: (value){
+                onSaved: (value) {
                   code = value!.toLowerCase();
                 },
                 hintText: 'Product code',
                 keyboardType: TextInputType.text,
               ),
               CustomTextFormField(
-                onSaved: (value){
+                onSaved: (value) {
                   description = value!;
                 },
                 hintText: 'Product description',
@@ -61,7 +63,7 @@ class AddProductViewBody extends StatelessWidget {
               Row(
                 children: [
                   CustomCheckBox(
-                    isFeatured: (isCheck){
+                    isFeatured: (isCheck) {
                       isFeatured = isCheck;
                     },
                   ),
@@ -75,41 +77,42 @@ class AddProductViewBody extends StatelessWidget {
                   ),
                 ],
               ),
-              ImageField(onFileChanged: (image) {
-                this.image = image;
-              }),
+              ImageField(
+                onFileChanged: (image) {
+                  this.image = image;
+                },
+              ),
               SizedBox(height: 10),
               CustomMaterialButton(
                 buttonName: 'Add Product',
-                onPressed: (){
-                  if(image != null)
-                    {
-                      if(_formKey.currentState!.validate())
-                        {
-                          _formKey.currentState!.save();
-                          log(name);
-                          log(price.toString());
-                          log(code);
-                          log(description);
-                          log(isFeatured.toString());
-                        }
-                      else
-                        {
-                          _autovalidateMode = AutovalidateMode.always;
-                        }
-                    }
-                  else
-                    {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          backgroundColor: Colors.red,
-                          content: Center(child: Text('Please Select Image' , style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                          ),)),
-                        ),
+                onPressed: () {
+                  if (image != null) {
+                    if (_formKey.currentState!.validate()) {
+                      _formKey.currentState!.save();
+                      AddProductEntity(
+                        name: name,
+                        price: price,
+                        code: code,
+                        description: description,
+                        isFeatured: isFeatured,
+                        image: image!,
                       );
+                    } else {
+                      _autovalidateMode = AutovalidateMode.always;
                     }
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        backgroundColor: Colors.red,
+                        content: Center(
+                          child: Text(
+                            'Please Select Image',
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
+                        ),
+                      ),
+                    );
+                  }
                 },
               ),
               SizedBox(height: 10),
@@ -120,7 +123,3 @@ class AddProductViewBody extends StatelessWidget {
     );
   }
 }
-
-
-
-
