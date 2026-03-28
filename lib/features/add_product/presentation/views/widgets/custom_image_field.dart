@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -32,7 +33,14 @@ class _ImageFieldState extends State<ImageField> {
           selectedImage = File(image!.path);
           widget.onFileChanged(selectedImage);
         } on Exception catch (e) {
-          // TODO
+          selectedImage = null;
+          widget.onFileChanged(null);
+          log('Caught exception: $e');
+        }catch(e)
+        {
+          log('Caught exception: $e');
+          selectedImage = null;
+          widget.onFileChanged(null);
         }
         isLoading = false;
         setState(() {});
