@@ -2,6 +2,8 @@
 class Assets {
   Assets._();
 
+  static const String addProductCubitAddProductCubit = 'lib/features/add_product/presentation/managers/cubits/addProductCubit/add_product_cubit.dart';
+  static const String addProductCubitAddProductState = 'lib/features/add_product/presentation/managers/cubits/addProductCubit/add_product_state.dart';
   static const String entitiesAddProductEntity = 'lib/features/add_product/domain/entities/add_product_entity.dart';
   static const String errorsExceptions = 'lib/core/errors/exceptions.dart';
   static const String errorsFailure = 'lib/core/errors/failure.dart';
@@ -13,7 +15,9 @@ class Assets {
   static const String reposImagesRepoImpl = 'lib/features/add_product/data/repos/images_repo_impl.dart';
   static const String reposProductsRepo = 'lib/features/add_product/domain/repos/products_repo.dart';
   static const String reposProductsRepoImpl = 'lib/features/add_product/data/repos/products_repo_impl.dart';
+  static const String servicesDatabseService = 'lib/core/services/database_service.dart';
   static const String servicesFireStorage = 'lib/core/services/fire_storage.dart';
+  static const String servicesFirestoreService = 'lib/core/services/firestore_service.dart';
   static const String servicesSetupServiceLocator = 'lib/core/services/setup_service_locator.dart';
   static const String servicesStorageService = 'lib/core/services/storage_service.dart';
   static const String utilsAppColors = 'lib/core/utils/app_colors.dart';
