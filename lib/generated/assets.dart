@@ -8,6 +8,7 @@ class Assets {
   static const String errorsExceptions = 'lib/core/errors/exceptions.dart';
   static const String errorsFailure = 'lib/core/errors/failure.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';
+  static const String helperFunctionBuildShowSnackBar = 'lib/core/helper_function/build_show_snack_bar.dart';
   static const String helperFunctionOngenerateRoute = 'lib/core/helper_function/ongenerate_route.dart';
   static const String libFirebaseOptions = 'lib/firebase_options.dart';
   static const String libMain = 'lib/main.dart';
