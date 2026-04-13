@@ -11,11 +11,14 @@ class Assets {
   static const String helperFunctionOngenerateRoute = 'lib/core/helper_function/ongenerate_route.dart';
   static const String libFirebaseOptions = 'lib/firebase_options.dart';
   static const String libMain = 'lib/main.dart';
+  static const String modelsAddProductModel = 'lib/features/add_product/data/models/add_product_model.dart';
   static const String reposImagesRepo = 'lib/features/add_product/domain/repos/images_repo.dart';
   static const String reposImagesRepoImpl = 'lib/features/add_product/data/repos/images_repo_impl.dart';
   static const String reposProductsRepo = 'lib/features/add_product/domain/repos/products_repo.dart';
   static const String reposProductsRepoImpl = 'lib/features/add_product/data/repos/products_repo_impl.dart';
-  static const String servicesDatabseService = 'lib/core/services/database_service.dart';
+  static const String servicesCloudinaryService = 'lib/core/services/cloudinary_service.dart';
+  static const String servicesCustomBlocObserver = 'lib/core/services/custom_bloc_observer.dart';
+  static const String servicesDatabaseService = 'lib/core/services/database_service.dart';
   static const String servicesFireStorage = 'lib/core/services/fire_storage.dart';
   static const String servicesFirestoreService = 'lib/core/services/firestore_service.dart';
   static const String servicesSetupServiceLocator = 'lib/core/services/setup_service_locator.dart';

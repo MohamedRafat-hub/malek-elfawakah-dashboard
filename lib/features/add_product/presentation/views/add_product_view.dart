@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruits_hub_dashboard/core/services/setup_service_locator.dart';
 import 'package:fruits_hub_dashboard/core/utils/app_colors.dart';
+import 'package:fruits_hub_dashboard/features/add_product/domain/repos/images_repo.dart';
+import 'package:fruits_hub_dashboard/features/add_product/domain/repos/products_repo.dart';
+import 'package:fruits_hub_dashboard/features/add_product/presentation/managers/cubits/addProductCubit/add_product_cubit.dart';
 import 'package:fruits_hub_dashboard/features/add_product/presentation/views/widgets/add_product_view_body.dart';
 
 class AddProductView extends StatelessWidget {
@@ -17,7 +22,10 @@ class AddProductView extends StatelessWidget {
           style: TextStyle(color: AppColors.primaryColor),
         ),
       ),
-      body: AddProductViewBody(),
+      body: BlocProvider(
+        create: (context) => AddProductCubit(imagesRepo: getIt.get<ImagesRepo>(), productsRepo: getIt.get<ProductsRepo>()),
+        child: AddProductViewBody(),
+      ),
     );
   }
 }
