@@ -7,6 +7,10 @@ class AddProductModel {
   final num price;
   final String imageUrl;
   final bool isFeatured;
+  final int expirationMonths;
+  final int numberOfCalories;
+  final int unitAmount;
+  bool isOrganic;
 
   AddProductModel({
     required this.name,
@@ -15,6 +19,10 @@ class AddProductModel {
     required this.price,
     required this.imageUrl,
     required this.isFeatured,
+    required this.expirationMonths,
+    required this.numberOfCalories,
+    required this.unitAmount,
+    this.isOrganic = false,
   });
 
   factory AddProductModel.fromEntity(AddProductEntity entity) {
@@ -25,18 +33,25 @@ class AddProductModel {
       price: entity.price,
       imageUrl: entity.imageUrl ?? '',
       isFeatured: entity.isFeatured,
+      expirationMonths: entity.expirationMonths,
+      numberOfCalories: entity.numberOfCalories,
+      unitAmount: entity.unitAmount,
+      isOrganic: entity.isOrganic,
     );
   }
 
-
-  Map<String , dynamic> toMap(){
+  Map<String, dynamic> toMap() {
     return {
       'name': name,
-      'code' : code,
+      'code': code,
       'description': description,
       'price': price,
       'imageUrl': imageUrl,
       'isFeatured': isFeatured,
+      'expirationMonths': expirationMonths,
+      'numberOfCalories': numberOfCalories,
+      'unitAmount': unitAmount,
+      'isOrganic': isOrganic,
     };
   }
 }

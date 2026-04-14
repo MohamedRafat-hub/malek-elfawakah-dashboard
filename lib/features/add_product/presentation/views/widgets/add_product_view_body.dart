@@ -19,8 +19,10 @@ class AddProductViewBody extends StatelessWidget {
   GlobalKey<FormState> _formKey = GlobalKey();
   AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
   late String name, description, code;
-  late num price;
+  late num price ;
+  late int numberOfCalories , unitAmount , expirationMonths;
   bool isFeatured = false;
+  bool isOrganic = false;
   File? image;
 
   @override
@@ -54,6 +56,25 @@ class AddProductViewBody extends StatelessWidget {
                 },
                 hintText: 'Product code',
                 keyboardType: TextInputType.text,
+              ),CustomTextFormField(
+
+                onSaved: (value) {
+                  expirationMonths = int.parse(value!);
+                },
+                hintText: 'Expiration months',
+                keyboardType: TextInputType.number,
+              ),CustomTextFormField(
+                onSaved: (value) {
+                  numberOfCalories = int.parse(value!);
+                },
+                hintText: 'Number of calories',
+                keyboardType: TextInputType.number,
+              ),CustomTextFormField(
+                onSaved: (value) {
+                  unitAmount = int.parse(value!);
+                },
+                hintText: 'Unit amount',
+                keyboardType: TextInputType.number,
               ),
               CustomTextFormField(
                 onSaved: (value) {
@@ -72,6 +93,23 @@ class AddProductViewBody extends StatelessWidget {
                   ),
                   Text(
                     'Is Featured Product',
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  CustomCheckBox(
+                    isFeatured: (isCheck) {
+                      isOrganic = isCheck;
+                    },
+                  ),
+                  Text(
+                    'Is Organic Product',
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 16,
@@ -120,6 +158,10 @@ class AddProductViewBody extends StatelessWidget {
                                   description: description,
                                   isFeatured: isFeatured,
                                   image: image!,
+                                  expirationMonths: expirationMonths,
+                                  numberOfCalories: numberOfCalories,
+                                  unitAmount: unitAmount,
+                                  isOrganic: isOrganic,
                                 );
                                 context.read<AddProductCubit>().addProduct(
                                   entity,
