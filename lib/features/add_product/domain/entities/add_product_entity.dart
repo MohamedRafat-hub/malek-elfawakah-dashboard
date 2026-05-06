@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:fruits_hub_dashboard/features/add_product/domain/entities/review_entity.dart';
+
 class AddProductEntity {
   final String name;
   final num price;
@@ -12,6 +14,7 @@ class AddProductEntity {
   final int numberOfCalories;
   final int unitAmount;
   bool isOrganic;
+  final List<ReviewEntity>reviews;
 
   AddProductEntity({
     required this.name,
@@ -24,6 +27,6 @@ class AddProductEntity {
     required this.expirationMonths,
     required this.numberOfCalories,
     required this.unitAmount,
-    this.isOrganic = false,
+    this.isOrganic = false, required this.reviews,
   });
 }

@@ -162,6 +162,7 @@ class AddProductViewBody extends StatelessWidget {
                                   numberOfCalories: numberOfCalories,
                                   unitAmount: unitAmount,
                                   isOrganic: isOrganic,
+                                  reviews: [],
                                 );
                                 context.read<AddProductCubit>().addProduct(
                                   entity,

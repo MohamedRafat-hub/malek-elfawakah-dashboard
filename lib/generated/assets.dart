@@ -5,6 +5,7 @@ class Assets {
   static const String addProductCubitAddProductCubit = 'lib/features/add_product/presentation/managers/cubits/addProductCubit/add_product_cubit.dart';
   static const String addProductCubitAddProductState = 'lib/features/add_product/presentation/managers/cubits/addProductCubit/add_product_state.dart';
   static const String entitiesAddProductEntity = 'lib/features/add_product/domain/entities/add_product_entity.dart';
+  static const String entitiesReviewEntity = 'lib/features/add_product/domain/entities/review_entity.dart';
   static const String errorsExceptions = 'lib/core/errors/exceptions.dart';
   static const String errorsFailure = 'lib/core/errors/failure.dart';
   static const String generatedAssets = 'lib/generated/assets.dart';
@@ -13,6 +14,7 @@ class Assets {
   static const String libFirebaseOptions = 'lib/firebase_options.dart';
   static const String libMain = 'lib/main.dart';
   static const String modelsAddProductModel = 'lib/features/add_product/data/models/add_product_model.dart';
+  static const String modelsReviewModel = 'lib/features/add_product/data/models/review_model.dart';
   static const String reposImagesRepo = 'lib/features/add_product/domain/repos/images_repo.dart';
   static const String reposImagesRepoImpl = 'lib/features/add_product/data/repos/images_repo_impl.dart';
   static const String reposProductsRepo = 'lib/features/add_product/domain/repos/products_repo.dart';
